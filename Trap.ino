@@ -25,17 +25,17 @@
 #define ECHOPIN 7
 #define TRIGPIN 8
 
-void setup() {
-  pinMode(ECHOPIN, INPUT);
-  pinMode(TRIGPIN, OUTPUT);
+void pingSetup(unsigned int trigPin, unsigned int echoPin) {
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT);
 }
 
-void loop()
+long measureDistance()
 {
   // establish variables for duration of the ping,
   // and the distance result in centimeters:
   long duration, cm;
-
+  delay(100);
   // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
   // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
   digitalWrite(TRIGPIN, LOW);
@@ -49,10 +49,9 @@ void loop()
   // of the ping to the reception of its echo off of an object.
   digitalWrite(TRIGPIN, LOW);
   duration = pulseIn(ECHOPIN, HIGH);
- 
-  cm = microsecondsToCentimeters(duration);
   
-  delay(100);
+  cm = microsecondsToCentimeters(duration);
+  return cm;
 }
 
 long microsecondsToCentimeters(long microseconds)
