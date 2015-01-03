@@ -33,7 +33,6 @@ long measureDistance()
   // establish variables for duration of the ping,
   // and the distance result in centimeters:
   long duration, cm;
-  delay(100);
   // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
   // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
   digitalWrite(TRIGPIN, LOW);
@@ -58,4 +57,12 @@ long microsecondsToCentimeters(long microseconds)
   // The ping travels out and back, so to find the distance of the
   // object we take half of the distance travelled.
   return microseconds / 29 / 2;
+}
+
+/*Gets the Distance of an object from the sensor*/
+long takeDistance() 
+{
+  long time;
+  time = measureDistance();
+  return microsecondsToCentimeters(time);
 }

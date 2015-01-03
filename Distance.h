@@ -23,4 +23,7 @@ long measureDistance();
 /* Coverts Return Time to Distance in centimeters */
 long microsecondsToCentimeters(long microseconds);
 
+/*Gets the Distance of an object from the sensor*/
+long takeDistance();
+
 #endif //DISTANCE_H

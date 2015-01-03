@@ -29,13 +29,26 @@ void setup()
   // attaches the servo on pin 9 to the servo object
   doorServo.attach(SERVOPIN);
   //Setup the Distance Sensor
-  distanceSetup(unsigned int trigPin, unsigned int echoPin);
+  distanceSetup(TRIGPIN, ECHOPIN);
   //Sets the Trap to untripped 
   tripped = false;
 }
 
 void loop() 
 { 
+  long distance;
+  distance = takeDistance();
+  
   doorServo.write(180);                  // sets the servo position o the scaled value 
                            
-} 
+}
+
+/*Gets the Distance of an object from the sensor*/
+long takeDistance() 
+{
+  long time;
+  time = measureDistance();
+  return microsecondsToCentimeters(time);
+}
+
+
