@@ -25,7 +25,7 @@
 
 
 /* Sets up the pins for the Ultrasonic Sensor */
-void pingSetup(unsigned int trigPin, unsigned int echoPin);
+void distanceSetup(unsigned int trigPin, unsigned int echoPin);
 
 /*Detects the object and measures the Time for a return */
 long measureDistance();

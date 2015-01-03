@@ -21,7 +21,7 @@
    by Ian Curtis
  */
 
-void pingSetup(unsigned int trigPin, unsigned int echoPin) {
+void distanceSetup(unsigned int trigPin, unsigned int echoPin) {
   pinMode(echoPin, INPUT);
   pinMode(trigPin, OUTPUT);
 }
