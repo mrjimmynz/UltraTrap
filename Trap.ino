@@ -1,3 +1,4 @@
+
 /*Trap
   Distance activated Servo for trap.
 
@@ -11,6 +12,7 @@
 
 #include <Servo.h>
 #include "Distance.h"
+#include "Sleep.h"
 
 //Pin Numbers for the sensor's output.
 #define ECHOPIN 7
@@ -37,18 +39,14 @@ void setup()
 void loop() 
 { 
   long distance;
+  delay(100);
+  //Measure Distance
   distance = takeDistance();
-  
   doorServo.write(180);                  // sets the servo position o the scaled value 
                            
 }
 
-/*Gets the Distance of an object from the sensor*/
-long takeDistance() 
-{
-  long time;
-  time = measureDistance();
-  return microsecondsToCentimeters(time);
-}
+
+
 
 
