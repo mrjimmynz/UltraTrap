@@ -30,6 +30,7 @@ void setup()
 {
   // attaches the servo on pin 9 to the servo object
   doorServo.attach(SERVOPIN);
+  doorServo.write(MINPOSITION);
   //Setup the Distance Sensor
   distanceSetup(TRIGPIN, ECHOPIN);
   //Sets the Trap to untripped 
@@ -39,14 +40,24 @@ void setup()
 void loop() 
 { 
   long distance;
-  delay(100);
+
   //Measure Distance
   distance = takeDistance();
-  doorServo.write(180);                  // sets the servo position o the scaled value 
+  doorServo.write(MAXPOSITION);
                            
 }
 
-
-
-
+/*Checks to see if Trap has been tripped if so enters infinite loop*/
+void tripCheck(bool tripped)
+{
+  if (tripped)
+  {
+    sleepNow();
+    while(1);
+  }
+  else
+  {
+    delay(100);
+  }
+}
 
