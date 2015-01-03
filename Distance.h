@@ -1,13 +1,7 @@
 #ifndef DISTANCE_H
 #define DISTANCE_H
-/* Ping Sensor
-
-   This sketch reads a ultrasonic rangefinder and returns the
-   distance to the closest object in range. To do this, it sends a pulse
-   to the sensor to initiate a reading, then listens for a pulse
-   to return.  The length of the returning pulse is proportional to
-   the distance of the object from the sensor.
-
+/* Distance Sensor
+  Header file for the Distance sensor with metric Values only
    The circuit:
 	* +V connection of the PING))) attached to +5V
 	* GND connection of the PING))) attached to ground
@@ -15,11 +9,7 @@
 
    http://www.arduino.cc/en/Tutorial/Ping
 
-   created 3 Nov 2008
-   by David A. Mellis
-   modified 30 Aug 2011
-   by Tom Igoe
-   modified 3 Jan 2014
+   created 3 Jan 2014
    by Ian Curtis
  */
 

@@ -20,12 +20,14 @@
    modified 3 Jan 2014
    by Ian Curtis
  */
-
+ 
+/* Sets up the pins for the Ultrasonic Sensor */
 void distanceSetup(unsigned int trigPin, unsigned int echoPin) {
   pinMode(echoPin, INPUT);
   pinMode(trigPin, OUTPUT);
 }
 
+/*Detects the object and measures the Time for a return */
 long measureDistance()
 {
   // establish variables for duration of the ping,
@@ -49,6 +51,7 @@ long measureDistance()
   return duration;
 }
 
+/* Coverts Return Time to Distance in centimeters */
 long microsecondsToCentimeters(long microseconds)
 {
   // The speed of sound is 340 m/s or 29 microseconds per centimeter.
