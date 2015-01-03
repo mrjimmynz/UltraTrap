@@ -24,7 +24,8 @@
  *  
  *  Modified by Ian Curtis 3-1-2014
  */
-
+ 
+#include "Arduino.h"
 #include <avr/sleep.h>
 #include <avr/power.h>
 

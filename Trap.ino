@@ -17,6 +17,7 @@
 //Pin Numbers for the sensor's output.
 #define ECHOPIN 7
 #define TRIGPIN 8
+#define DETECTIONDISTANCE 10
 //Servo Defines
 #define SERVOPIN 9
 #define MAXPOSITION 180
@@ -40,10 +41,10 @@ void setup()
 void loop() 
 { 
   long distance;
-
+  tripCheck(tripped);
   //Measure Distance
-  distance = takeDistance();
-  doorServo.write(MAXPOSITION);
+  distance = measureDistance(TRIGPIN, ECHOPIN);
+  detection(distance);
                            
 }
 
@@ -55,9 +56,18 @@ void tripCheck(bool tripped)
     sleepNow();
     while(1);
   }
+}
+
+/*Checks Distances and Trips if something detected*/
+void detection(long distance)
+{
+  if (distance < DETECTIONDISTANCE)
+  {
+    doorServo.write(MAXPOSITION);
+    tripped = true;
+  }
   else
   {
     delay(100);
   }
 }
-

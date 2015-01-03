@@ -12,18 +12,18 @@
    created 3 Jan 2014
    by Ian Curtis
  */
-
+#include "Arduino.h"
 
 /* Sets up the pins for the Ultrasonic Sensor */
 void distanceSetup(unsigned int trigPin, unsigned int echoPin);
 
 /*Detects the object and measures the Time for a return */
-long measureDistance();
+long measureDistance(unsigned int trigPin, unsigned int echoPin);
 
 /* Coverts Return Time to Distance in centimeters */
 long microsecondsToCentimeters(long microseconds);
 
 /*Gets the Distance of an object from the sensor*/
-long takeDistance();
+long takeDistance(unsigned int trigPin, unsigned int echoPin);
 
 #endif //DISTANCE_H
