@@ -5,7 +5,8 @@
    The circuit:
 	* +V connection of the PING))) attached to +5V
 	* GND connection of the PING))) attached to ground
-	* SIG connection of the PING))) attached to digital pin 7
+	* SIG connection of the PING))) attached to digital pin 8
+        * Echo connection of the Ping attached to digital pin 7
 
    http://www.arduino.cc/en/Tutorial/Ping
 

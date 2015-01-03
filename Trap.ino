@@ -3,9 +3,14 @@
   Distance activated Servo for trap.
 
    The circuit:
-	* +V connection of the PING))) attached to +5V
-	* GND connection of the PING))) attached to ground
-	* SIG connection of the PING))) attached to digital pin 7
+	* +V connection of the Ping attached to +5V
+	* GND connection of the PING attached to ground
+	* SIG connection of the PING attached to digital pin 8
+        * Echo connection of the Ping attached to digital pin 7
+        * White of Servo Connected to Pin 9
+        * Red of Servo Connected to 5v
+        * Black of Servo Connected to Ground
+        
 
    by Ian Curtis
  */
@@ -40,7 +45,7 @@ void setup()
 
 void loop() 
 { 
-  long distance;
+  long distance = 1000;
   tripCheck(tripped);
   //Measure Distance
   distance = measureDistance(TRIGPIN, ECHOPIN);
