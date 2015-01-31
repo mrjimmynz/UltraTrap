@@ -10,7 +10,7 @@
 
    http://www.arduino.cc/en/Tutorial/Ping
 
-   created 3 Jan 2014
+   Created 3 Jan 2014 for UltraTrap Arduino app
    by Ian Curtis
  */
 #include "Arduino.h"

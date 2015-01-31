@@ -18,7 +18,8 @@
    by David A. Mellis
    modified 30 Aug 2011
    by Tom Igoe
-   modified 3 Jan 2014
+   
+   Modified for UltraTrap 3 Jan 2014
    by Ian Curtis
  */
 #include "Arduino.h"
