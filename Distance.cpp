@@ -34,7 +34,7 @@ long measureDistance(unsigned int trigPin, unsigned int echoPin)
 {
   // establish variables for duration of the ping,
   // and the distance result in centimeters:
-  long duration, cm;
+  long duration;
   // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
   // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
   digitalWrite(trigPin, LOW);

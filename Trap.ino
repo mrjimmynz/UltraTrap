@@ -10,8 +10,6 @@
         * White of Servo Connected to Pin 9
         * Red of Servo Connected to 5v
         * Black of Servo Connected to Ground
-        
-
    by Ian Curtis
  */
 
@@ -25,8 +23,8 @@
 #define DETECTIONDISTANCE 10
 //Servo Defines
 #define SERVOPIN 9
-#define MAXPOSITION 180
-#define MINPOSITION 0
+#define MAXPOSITION 179
+#define MINPOSITION 1
 
 Servo doorServo;  // create servo object to control a servo
 
@@ -34,9 +32,16 @@ bool tripped;    // variable to read the value from the analog pin
 
 void setup()
 {
+  /******************
+  debugging
+  *******************/
+  Serial.begin(9600);
+  Serial.print(doorServo.read());
+   /******************/
   // attaches the servo on pin 9 to the servo object
   doorServo.attach(SERVOPIN);
   doorServo.write(MINPOSITION);
+  //Serial.print(doorServo.read());
   //Setup the Distance Sensor
   distanceSetup(TRIGPIN, ECHOPIN);
   //Sets the Trap to untripped 
@@ -46,10 +51,18 @@ void setup()
 void loop() 
 { 
   long distance = 1000;
-  tripCheck(tripped);
+  
   //Measure Distance
-  distance = measureDistance(TRIGPIN, ECHOPIN);
+  distance = takeDistance(TRIGPIN, ECHOPIN);
+  /******************
+  Debugging
+  *******************/
+  Serial.print(distance);
+  Serial.print("cm");
+  Serial.println();
+  /*******************/
   detection(distance);
+  tripCheck(tripped);
                            
 }
 
@@ -58,6 +71,7 @@ void tripCheck(bool tripped)
 {
   if (tripped)
   {
+    delay(10000);
     sleepNow();
     while(1);
   }
@@ -66,7 +80,7 @@ void tripCheck(bool tripped)
 /*Checks Distances and Trips if something detected*/
 void detection(long distance)
 {
-  if (distance < DETECTIONDISTANCE)
+  if (distance < DETECTIONDISTANCE && distance > 0)
   {
     doorServo.write(MAXPOSITION);
     tripped = true;
