@@ -5,9 +5,9 @@
    The circuit:
 	* +V connection of the Ping attached to +5V
 	* GND connection of the PING attached to ground
-	* SIG (trig) connection of the PING attached to digital pin 8
-        * Echo connection of the Ping attached to digital pin 7
-        * White of Servo Connected to Pin 9
+	* SIG (trig) connection of the PING attached to digital pin 9
+        * Echo connection of the Ping attached to digital pin 8
+        * White of Servo Connected to Pin 10
         * Red of Servo Connected to 5v
         * Black of Servo Connected to Ground
    by Ian Curtis
@@ -18,11 +18,11 @@
 #include "Sleep.h"
 
 //Pin Numbers for the sensor's output.
-#define ECHOPIN 7
-#define TRIGPIN 8
+#define ECHOPIN 8
+#define TRIGPIN 9
 #define DETECTIONDISTANCE 10
 //Servo Defines
-#define SERVOPIN 9
+#define SERVOPIN 10
 #define MAXPOSITION 179
 #define MINPOSITION 1
 
